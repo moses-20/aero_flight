@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'widgets/appbar.dart';
+import 'widgets/rounded_buttons.dart';
 
 void main() => runApp(new MyApp());
 
@@ -19,8 +21,35 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Lets get started!'),
+      body: Stack(
+        children: <Widget>[
+          AeroAppBar(height: 210.0),
+          Positioned.fill(
+            child: Padding(
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top + 40.0),
+              child: Column(
+                children: <Widget>[
+                  _buildButtons(),
+                  Container(), // TODO: implement a card
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildButtons() {
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Row(
+        children: <Widget>[
+          RoundedButton(text: 'ONE WAY'),
+          RoundedButton(text: 'ROUND'),
+          RoundedButton(text: 'MULTICITY', active: true),
+        ],
       ),
     );
   }
