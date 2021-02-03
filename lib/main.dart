@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'widgets/appbar.dart';
 import 'widgets/rounded_buttons.dart';
+import 'widgets/card_content.dart';
 
 void main() => runApp(new MyApp());
 
@@ -31,7 +32,7 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   _buildButtons(),
-                  Container(), // TODO: implement a card
+                  Expanded(child: CardContent()),
                 ],
               ),
             ),
